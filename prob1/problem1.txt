@@ -1,0 +1,10 @@
+ls | wc -l                      — Lists the files in the current directory and pipes that into wc -l, so it counts the number of files/directories in the current folder.
+rm ???                          — Deletes every file in the current directory whose name is exactly 3 characters long (each ? matches exactly one character).
+who | wc -l                     — Lists everyone currently logged into the system and counts how many lines that produces, i.e. tells you how many users are logged in.
+mv progs/* /users/steve/backup  — Moves everything inside the progs directory into /users/steve/backup.
+ls *.c | wc -l                  — Lists all files ending in .c and counts them, giving the number of C source files in the current directory.
+who | sort                      — Lists logged-in users and sorts the output alphabetically.
+cd; pwd                         — cd with no argument sends you to your home directory, then pwd prints it, so this just prints your home directory path.
+cp memo1 ..                     — Copies the file memo1 up into the parent directory.
+date +%T                        — Prints the current time in HH:MM:SS format.
+plotdata 2>errors &             — Runs the plotdata program in the background, sending any error messages (stderr) to a file called errors (normal output still goes to the screen).

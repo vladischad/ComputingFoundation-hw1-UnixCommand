@@ -1,0 +1,5 @@
+cat infile | sort | wc -l > outfile
+
+This reads infile with cat, pipes those lines into sort (alphabetically sorts them), pipes the sorted lines into wc -l (counts the lines), and redirects that count into a file called outfile. 
+So outfile ends up containing a single number — the total number of lines in infile. 
+(Technically the cat isn't even needed here since sort could just take infile directly, but the command still works correctly.)

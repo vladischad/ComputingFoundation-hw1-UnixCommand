@@ -1,0 +1,23 @@
+Given x=*, y=?, z='one two three', now=$(date), symbol='>', and files programs documents games homeworks (in that order, per the example echo * output):
+
+echo *** error ***          → programs documents games homeworks error programs documents games homeworks 
+                              (Multiple * together still just match everything, same as a single *; "error" has no wildcard characters so it's left alone.)
+
+echo 'Is 5 * 4 > 18 ?'      → Is 5 * 4 > 18 ?                       (Single quotes suppress all expansion, so it prints exactly as written.)
+
+echo $x                     → programs documents games homeworks    (x holds the literal *; being unquoted, it still gets glob-expanded by the shell.)
+
+echo What is your name?     → What is your name?                    (name? is a glob pattern, but since no file matches it, bash just leaves it unchanged.)
+
+echo $y                     → ?                                     (y holds ?; unquoted, the shell tries to glob-match it against a 1-character filename, finds none, so it stays literal.)
+
+echo "$y"                   → ?                                     (Double quotes prevent globbing, so no matching is even attempted — same literal result.)
+
+echo \*\*\*                 → ***                                   (The backslashes escape each *, so no expansion happens.)
+
+echo $z | wc -l             → 1                                     (echo prints one two three as a single line; wc -l counts 1 line.)
+
+echo \$$symbol              → $>                                    (The backslash makes the first $ literal; the second $symbol expands normally to >.)
+
+echo hello $symbol out      → hello > out                           
+                              (Redirection operators are only recognized when typed directly in the command; since > comes from a variable expansion, it's just treated as a regular argument to echo.)

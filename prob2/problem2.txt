@@ -1,0 +1,14 @@
+Commands using the variables:
+(a) List contents of documents directory:               ls $docs
+(b) Copy all files from letters to proposals:           cp $let/* $prop
+(c) Move all files from letters to current directory:   mv $let/* .
+(d) Count files in memos directory:                     ls $docs/memos | wc -l
+
+
+
+Effects of the given commands:
+
+ls $let/..                      — $let/.. resolves to the parent of letters, which is documents itself, so this lists letters, memos, and proposals.
+cat $prop/sys.A >> $let/no.JSK  — Appends the contents of proposals/sys.A onto the end of letters/no.JSK (creating no.JSK if it doesn't already exist).
+echo $let/*                     — Expands to and prints the full paths of every file inside the letters directory.
+cp $let/no.JSK $progs           — Copies the no.JSK file (the one just appended to) from letters into the programs directory.

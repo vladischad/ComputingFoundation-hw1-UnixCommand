@@ -1,0 +1,6 @@
+XxXxXx      — Valid. Only letters.
+HOMEDIR     — Valid. Only letters.
+filename    — Valid. Only letters.
+x09         — Valid. Starts with a letter, followed by digits.
+file1       — Valid. Starts with a letter, followed by a digit.
+$limit      — Invalid as a variable name. $ is used to reference a variable's value, not as part of the name itself — we'd define it as limit and only use $limit when reading its value.
